@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SectionsController;
-use App\Http\Controllers\ListsController;
+use App\Http\Controllers\ComponentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 define('PAGINATION_COUNT',5);
-define('lists_path','/images/lists/');
+define('sections_path','/images/sections/');
     ######################### Begin Sections Routes ########################
 Route::prefix('sections')->name('sections.')->group(function(){
 	  Route::get('index'     ,[SectionsController::class, 'index'])->name('index');
@@ -33,15 +33,15 @@ Route::prefix('sections')->name('sections.')->group(function(){
 
     ######################### End Sections Routes ########################
 
-    ######################### Begin Lists Routes ########################
-Route::prefix('lists')->name('lists.')->group(function(){
-	  Route::get('index'     ,[ListsController::class, 'index'])->name('index');
-	  Route::get('create'    ,[ListsController::class, 'create'])->name('create');
-	  Route::post('store'    ,[ListsController::class, 'store'])->name('store');
-	  Route::get('{id}/edit' ,[ListsController::class, 'edit'])->name('edit');
-	  Route::post('{id}/update',[ListsController::class, 'update'])->name('update');
-	  Route::post('destroy/{id}'  ,[ListsController::class, 'destroy'])->name('destroy');
+    ######################### Begin Components Routes ########################
+Route::prefix('components')->name('components.')->group(function(){
+	  Route::get('index'     ,[ComponentsController::class, 'index'])->name('index');
+	  Route::get('create'    ,[ComponentsController::class, 'create'])->name('create');
+	  Route::post('store'    ,[ComponentsController::class, 'store'])->name('store');
+	  Route::get('{id}/edit' ,[ComponentsController::class, 'edit'])->name('edit');
+	  Route::post('{id}/update',[ComponentsController::class, 'update'])->name('update');
+	  Route::post('destroy/{id}'  ,[ComponentsController::class, 'destroy'])->name('destroy');
 
 });
 
-    ######################### End lists Routes ########################
+    ######################### End Components Routes ########################
